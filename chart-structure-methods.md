@@ -122,3 +122,48 @@ one, which would be easy to miss without splitting the halves out
 explicitly. "Strength filtering improves structure trading" is not a
 universal truth here; it's conditional on being in a genuinely trending
 regime, which isn't knowable in advance without hindsight.
+
+## Second follow-up: sweeping the ADX threshold (is 25 special, or cherry-picked?)
+
+The result above used ADX>25, the classic Wilder "trending" cutoff — but
+that's still just one arbitrary choice. `code/structure_adx_sweep.py`
+reruns the same system across thresholds 15 through 45 to check whether
+25 is doing something real or whether it only looked good because it's
+the conventional number people reach for.
+
+**Results:**
+
+| Threshold | Full period | First half | Second half |
+|---|---|---|---|
+| >15 | 36.0%/yr, -69.6% DD, 136 trades | 59.1%/yr, -69.6% DD | 17.1%/yr, -52.9% DD |
+| >20 | 36.4%/yr, -69.4% DD, 120 trades | 67.6%/yr, -69.4% DD | 12.0%/yr, -51.5% DD |
+| **>25** | **36.9%/yr, -55.8% DD**, 92 trades | **78.8%/yr, -47.2% DD** | 5.9%/yr, -51.1% DD |
+| >30 | 22.7%/yr, -61.3% DD, 84 trades | 53.3%/yr, -45.5% DD | -0.9%/yr, -48.3% DD |
+| >35 | 12.7%/yr, -63.7% DD, 72 trades | 31.2%/yr, -49.1% DD | -2.5%/yr, -40.6% DD |
+| >40 | 3.7%/yr, -50.6% DD, 42 trades | 0.9%/yr, -45.8% DD | 6.6%/yr, **-14.2%** DD |
+| >45 | 5.4%/yr, -42.0% DD, 26 trades | 7.3%/yr, -38.4% DD | 3.5%/yr, -15.0% DD |
+
+**Findings:**
+
+1. **25 does look like a genuine local optimum for the full period and
+   first half** — return peaks there before degrading steadily as the
+   threshold climbs further (78.8%/yr at 25 vs. 53.3%/yr at 30 vs.
+   0.9%/yr at 40, in the first half). That's not nothing — it suggests
+   Wilder's classic default isn't arbitrary, at least in this
+   trending-heavy dataset.
+2. **But the second half shows no such optimum** — return declines
+   *monotonically* from 15 down to negative at 30-35; lower thresholds
+   were simply better there. The apparent "recovery" at 40-45 (6.6%,
+   3.5% with much better drawdown) is a trap, not a real finding: trade
+   count collapses to 12 and 8 trades, meaning the strategy is barely
+   participating at all. The drawdown improvement there is just "mostly
+   sitting in cash," not genuine strength filtering.
+3. **The curve-fitting risk this exposes**: reporting only ADX>25 (as
+   the first follow-up did, using the "classic" value) makes a
+   regime-dependent, in-sample-flattering choice look like a principled
+   one. There's no threshold here that's robustly good across both
+   halves — 25 happens to sit near a full-period optimum found *after*
+   running the sweep, which is exactly the kind of single-parameter
+   result this project's other case studies (and the `money-making`
+   contrast note above) have repeatedly flagged as a red flag rather
+   than evidence of a real edge.
