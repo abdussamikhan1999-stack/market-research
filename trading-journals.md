@@ -161,3 +161,48 @@ time running a high-frequency, highly-leveraged style eventually turns a
 "+317% this month" narrative into "-97.5% this year, balance $1" — the
 three accounts side by side make that trajectory visible in one dataset
 instead of requiring speculation about what might happen later.
+
+## Contrast: what disciplined process looks like (~/repos/money-making)
+
+The vrbnca and IMforex case studies above show what happens *without*
+guardrails against luck, curve-fitting, and compounding risk. A private
+NSE/Kite quant-research project on this same machine
+(`~/repos/money-making`) is a useful contrast — not a forum thread, but a
+working example of a process built specifically to catch these failure
+modes before they reach real capital:
+
+- **Walk-forward split as a hard gate**: every one of 87 tested trading
+  mechanisms is split into two time halves; a strategy only "passes" if
+  *both* halves are net-positive with no drawdown-halt. Most fail — "0/216
+  passed," "2/12 passed," "3/12 passed" are typical results throughout
+  the project's log, the mirror image of the forum accounts treating one
+  good month as proof.
+- **Honest multiple-comparisons correction**: p-values are tracked across
+  the whole project and checked against a Bonferroni-corrected threshold
+  that gets stricter as more strategies are tested — a result with
+  p=0.0002 (the pre-holiday effect) is still explicitly logged as
+  *failing* the corrected bar, rather than being cherry-picked as a win.
+- **Survivorship-bias stress tests**: findings are re-run with real
+  historical stock blowups (e.g. JETAIRWAYS, DHFL) added back into the
+  universe, specifically to check whether the edge only exists because
+  the dataset quietly excludes companies that went to zero — the same
+  blind spot that made IMforex's newer accounts look great in isolation.
+- **Fixed risk sizing, tested for breaking points**: position sizing is
+  tested explicitly (`--risk-per-trade-pct`), and the log repeatedly
+  documents where *increasing* leverage breaks a strategy ("2% breaks
+  it — drawdown-halted") rather than treating bigger size as free
+  upside — the opposite instinct from a martingale/grid approach.
+- **A hard drawdown ceiling used to reject, not bypass**: a
+  `RiskManager` drawdown-from-peak breaker disqualifies any strategy that
+  breaches it during testing, rather than being something to "ride
+  through" as IMforex's oldest account effectively did on the way to a
+  $1 balance.
+
+**Current status**: 87 mechanisms tested, exactly one ("IBS rotation," a
+diversified 5-stock rotation) is a standing finding, running in a live
+*paper*-tracker (no real capital, no leverage) — and even that is
+explicitly marked "nothing is declared tradable" pending further
+validation. No martingale/grid patterns, no single-month hype, no
+undiagnosed survivorship bias found in this project — it's built to
+surface exactly those problems before they become losses, which is the
+gap that was missing in the vrbnca and IMforex accounts above.
