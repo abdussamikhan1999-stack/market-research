@@ -8,6 +8,7 @@ exchange sites, block explorers) rather than relying on forum claims.
 - [`gme.md`](gme.md) — GME short interest, days to cover, borrow rate, and raw SEC failure-to-deliver data
 - [`crypto.md`](crypto.md) — BTC, XRP, and Monero price/network data
 - [`stock-market-overview.md`](stock-market-overview.md) — snapshot of index futures and market sentiment
+- [`trading-journals.md`](trading-journals.md) — forum trade calls checked against actual historical price data
 - [`data/gme_ftd_august_2026.csv`](data/gme_ftd_august_2026.csv) — raw GME fails-to-deliver data, parsed from SEC.gov's `cnsfails` files for August 2026
 
 ## Caveats
