@@ -10,6 +10,7 @@ exchange sites, block explorers) rather than relying on forum claims.
 - [`stock-market-overview.md`](stock-market-overview.md) — snapshot of index futures and market sentiment
 - [`trading-journals.md`](trading-journals.md) — forum trade calls checked against actual historical price data
 - [`forum-notes.md`](forum-notes.md) — forum conventions/rules that affect how much to trust a claimed trade call
+- [`chart-structure-methods.md`](chart-structure-methods.md) — chart structure analysis methods, plus a real backtest of swing-structure breaks on 8 years of BTC data (code in `code/`, data in `data/btc_daily.json`)
 - [`data/gme_ftd_august_2026.csv`](data/gme_ftd_august_2026.csv) — raw GME fails-to-deliver data, parsed from SEC.gov's `cnsfails` files for August 2026
 
 ## Caveats
