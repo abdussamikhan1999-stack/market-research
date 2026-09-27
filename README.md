@@ -6,7 +6,7 @@ exchange sites, block explorers) rather than relying on forum claims.
 
 - [`precious-metals.md`](precious-metals.md) — gold/silver spot prices, gold-silver ratio, 10-year context
 - [`gme.md`](gme.md) — GME short interest, days to cover, borrow rate, and raw SEC failure-to-deliver data
-- [`crypto.md`](crypto.md) — XRP and Monero price/network data
+- [`crypto.md`](crypto.md) — BTC, XRP, and Monero price/network data
 - [`stock-market-overview.md`](stock-market-overview.md) — snapshot of index futures and market sentiment
 - [`data/gme_ftd_august_2026.csv`](data/gme_ftd_august_2026.csv) — raw GME fails-to-deliver data, parsed from SEC.gov's `cnsfails` files for August 2026
 

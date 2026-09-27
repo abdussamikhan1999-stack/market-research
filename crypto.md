@@ -1,4 +1,23 @@
-# Crypto: XRP and Monero
+# Crypto: BTC, XRP, and Monero
+
+## Bitcoin (BTC)
+
+- **Price**: ~$84,000 (2026-09-27) — Coinbase $84,027.46, Kraken
+  $84,106.00, CoinDesk $83,974.45 (consistent across sources)
+- Down ~1% over 24h, up ~3% over the trailing week
+- ~33% below all-time high of $126,210.50 (set 2025-10-06)
+
+Note on conflicting sentiment: a news aggregator feed checked the same
+day carried two contradictory takes published close together — one
+saying BTC "falls below $84K support" (bearish framing), another asking
+if "$100K could be next" (bullish framing) off a claimed "confirmed
+bullish signal." The actual price check above confirms BTC is trading
+right at ~$84K, i.e. the bearish/support-break framing matched reality
+at the time of checking; the $100K piece looks like it was either stale
+or speculative relative to current price. Useful reminder: aggregated
+news feeds often carry both bull and bear takes on the same asset
+simultaneously — check the actual price rather than trusting either
+headline.
 
 ## XRP
 
