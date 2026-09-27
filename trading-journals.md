@@ -120,3 +120,44 @@ higher frequency/risk than however the account started.
 sustainable. Look past the top-line return to position sizing and
 win/loss structure before treating any short monthly track record —
 especially one this extreme — as evidence of skill.
+
+## IMforex — three linked accounts, one already blown up (forexfactory.com Trade Explorer, 2026)
+
+**The setup**: one trader (IMforex, ThinkMarkets broker) running three
+separate live-linked accounts simultaneously, all trading GBP/USD:
+
+| Account | History | All-Time Return | This Year | This Month |
+|---|---|---|---|---|
+| $50 (original) | 71 months, 4,482 trades | -38.4% | **-97.5%** | — |
+| $50 II | started Mar 2026, 484 trades | -51.4% | +11.3% | **+118.7%** |
+| $1000 | started Jun 2026, 393 trades | -17.2% | -18.9% | **+317.6%** |
+
+**The key finding**: the account with by far the longest real history
+(71 months, 4,482 trades) is sitting at a balance of **$1** after a
+-97.5% year, on top of an all-time return that was already negative
+(-38.4%) before this year's collapse. Meanwhile the two newer accounts
+are having spectacular months. Anyone looking only at the newer accounts'
+headline "This Month" figures would see a trader on a hot streak; the
+original account shows what this trading style eventually does given
+enough time.
+
+**Evidence it's one strategy, not three**: the $50 II and $1000 accounts'
+"Latest Closed Trades" show identical entries/exits — same GBP/USD
+prices, same days (e.g. both bought 1.3213 → 1.3237 "44 hr ago") — just
+scaled lot sizes (0.04 vs 0.35, ~8.75x). This is one EA/signal run in
+parallel across differently-sized accounts, not independent strategies,
+so the two "hot month" data points are really one data point counted
+twice.
+
+**Trade style**: very high frequency (4,482 trades / 71 months ≈
+63/month on the oldest account), all GBP/USD, small lot sizes, large
+percentage swings per trade (individual scalps showing -30% to -60%
+return on that trade's margin) — tight, leveraged scalping rather than
+position trading.
+
+**Takeaway**: this is the vrbnca pattern's actual endpoint, from the same
+trader's own longer-running account rather than inferred risk. Enough
+time running a high-frequency, highly-leveraged style eventually turns a
+"+317% this month" narrative into "-97.5% this year, balance $1" — the
+three accounts side by side make that trajectory visible in one dataset
+instead of requiring speculation about what might happen later.
