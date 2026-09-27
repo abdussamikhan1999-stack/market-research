@@ -73,3 +73,52 @@ standalone edge. This test also doesn't subtract trading costs (138
 trades x real spread/fees would erode the thin edge further), so treat
 even this modest result as an upper bound. Single instrument (BTC only),
 not cross-validated against other assets.
+
+## Follow-up: does filtering "structure" by "strength" (ADX) help?
+
+"Structure" (the swing high/low shape above) and "strength" (how much
+conviction is behind a move) are different things. The plain version
+above takes every structure break literally, with no regard for whether
+the breakout has real momentum behind it. This follow-up
+(`code/structure_adx_backtest.py`) adds a Wilder ADX(14) filter: only
+take a bullish break-of-structure entry if ADX > 25 (the classic
+"trending, not choppy" threshold) at the time of the break. Exits on a
+bearish break stay unconditional — risk management shouldn't wait on a
+filter to get out.
+
+Note: the ADX warm-up period shifts the test's start date slightly later
+than the plain-only test above, so the "Plain structure" column here is
+recomputed over the identical (shorter) window as "ADX-filtered," not
+copy-pasted from the numbers above — they differ slightly for that
+reason, not because of any change to the underlying logic.
+
+**Results:**
+
+| Period | Plain structure | ADX-filtered (>25) | Buy & hold |
+|---|---|---|---|
+| Full (2017-2025) | 41.7%/yr, -69.6% DD, 136 trades | 36.9%/yr, **-55.8%** DD, 92 trades | 53.1%/yr, -83.2% DD |
+| First half | 64.4%/yr, -69.6% DD | **78.8%/yr, -47.2%** DD (better on both) | 89.1%/yr, -83.2% DD |
+| Second half | 23.0%/yr, -51.4% DD | **5.9%/yr**, -51.1% DD (worse return, same DD) | 25.0%/yr, -76.6% DD |
+
+**Verdict: the filter is not a consistent improvement — it's
+regime-dependent, and that inconsistency is the real finding.**
+
+- **First half** (strongly trending bull market): the ADX filter worked
+  exactly as the theory predicts — higher return AND much lower
+  drawdown, achieved by skipping 72 "weak" signals. Filtering out
+  low-conviction breakouts helped when the underlying market was
+  genuinely trending.
+- **Second half** (choppier, more range-bound): the filter backfired —
+  return dropped from 23% to 5.9%, while drawdown barely improved
+  (-51.1% vs -51.4%, essentially no difference). It skipped 114 signals
+  here, and evidently some of those were genuinely good moves, not just
+  noise — ADX>25 doesn't reliably distinguish "real trend" from
+  "fakeout" when the underlying regime itself is less trend-driven.
+
+Averaged across the full period this looks like a rough wash on return
+with a real drawdown improvement — but that full-period number is really
+just the first half's strong result diluted by the second half's poor
+one, which would be easy to miss without splitting the halves out
+explicitly. "Strength filtering improves structure trading" is not a
+universal truth here; it's conditional on being in a genuinely trending
+regime, which isn't knowable in advance without hindsight.
