@@ -29,3 +29,15 @@ and longtermtrends.com both blocked/failed to render numeric data):
   recycled supply)
 - Large reported outflows from COMEX vaults alongside rising delivery
   activity — read by bulls as tightening physical supply
+
+## Yields vs. gold (2026-09-27)
+
+- **10-year Treasury yield**: ~5.17-5.23% as of Friday close (2026-09-25),
+  confirmed by CNBC as the **highest level since 2007** (~19-year high).
+  Spiked ~23bps over three sessions leading into that Friday, attributed
+  to markets repricing toward more Fed tightening on sticky inflation.
+- Notable: gold is still **up** (+0.25%) despite this yield spike. Rising
+  yields normally pressure gold, since a non-yielding asset gets less
+  attractive relative to bonds paying more — gold holding firm here
+  suggests safe-haven/inflation-hedge demand is currently outweighing
+  that headwind, consistent with the supply-deficit narrative above.
