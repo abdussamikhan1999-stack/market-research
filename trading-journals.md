@@ -43,3 +43,80 @@ against real price data before treating the record as evidence of edge.
 
 Source data: Binance public API
 (`api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d`).
+
+## GBP/USD directional debate (forexfactory.com, Nov 2006)
+
+**The setup**: heading into the week of Nov 20, 2006, four traders
+debated cable's direction from around 1.8850-1.8950. Positions taken:
+- OP: bullish, target ~1.9050
+- AhmedFouad: neutral/disciplined — flat until either 1.8834/36 (support)
+  or 1.8965/67 (resistance) broke with a confirmed close
+- Qu|cksilver: breakout rule — go long if the market opens above 1.8950
+- ghitz: bearish continuation — expected the bounce to be a pullback
+  (38% retrace of the prior down-move) before resuming lower, citing a
+  50% retrace/stop area near 1.8917-1.9170
+
+**What actually happened** (verified via ECB daily reference rates,
+Frankfurter API — `api.frankfurter.app`):
+
+| Date | GBP/USD |
+|---|---|
+| Fri 2006-11-17 | 1.8852 |
+| Mon 2006-11-20 | 1.8973 |
+| Tue 2006-11-21 | 1.8989 |
+| Wed 2006-11-22 | 1.9093 |
+| Thu 2006-11-23 | 1.9147 |
+| Fri 2006-11-24 | 1.9320 |
+| Mon 2006-11-27 | 1.9351 |
+| Tue 2006-11-28 | 1.9441 |
+| Wed 2006-11-29 | 1.9512 |
+| Thu 2006-11-30 | 1.9577 |
+
+Cable rallied every day with no pullback, clearing 1.8950 immediately on
+Monday and blowing well past the OP's 1.9050 target to **1.9577** by
+month-end (~4% move in under two weeks).
+
+**Scoring**: OP (bullish) and Qu|cksilver (breakout-long) were both
+vindicated — Qu|cksilver's rule would have triggered Monday and ridden
+most of the move. AhmedFouad's discipline (wait for a confirmed close
+above 1.8967) cost nothing but also captured none of the move — his own
+trigger condition was met almost immediately. ghitz's bearish
+retrace-and-continuation call was **wrong**: there was no reversal at
+all, just a sustained trend.
+
+Caveat: this is ECB's daily reference fixing rate, not intraday OHLC, so
+exact intraday stop hits can't be confirmed — only the day-to-day trend.
+
+## vrbnca — "1,234.8% this month" Gold/USD account (forexfactory.com Trade Explorer, Sep 2026)
+
+**The setup**: a Forex Factory profile with a live broker-verified Trade
+Explorer (synced directly from an Exness live account, not
+self-reported) showing:
+- **This month**: +1,234.8% return, 165-166 entries/exits
+- **All time**: +158.6% return, 351 total trades
+
+**The red flag**: almost the entire lifetime return of the account
+happened in a single recent month — a near-flat/modest history followed
+by an explosive one-month spike is a classic signature of either an
+extreme lucky bet or a martingale/grid strategy (scaling position size
+after losses to force an eventual win), not a repeatable edge.
+
+**Supporting evidence from the visible trade list**: a run of Gold/USD
+sell trades in the same session shows small +0.1% wins mixed with much
+larger -3.3% and -3.9% losses, all around the same 4,280-4,295 price
+zone — consistent with repeatedly re-entering/averaging a losing short as
+price ground higher against the position, then closing pieces for small
+wins once price ticked back down. This pattern produces a smooth-looking
+equity curve right up until a strong enough adverse move causes an
+account blowup, since risk compounds with each re-entry instead of
+staying fixed.
+
+**Volume**: ~165 of the account's 351 all-time trades (roughly half)
+happened in the single most recent month — a sharp, recent shift to much
+higher frequency/risk than however the account started.
+
+**Takeaway**: broker-verified trade history is a real trust signal
+(confirms the numbers aren't fabricated), but verified is not the same as
+sustainable. Look past the top-line return to position sizing and
+win/loss structure before treating any short monthly track record —
+especially one this extreme — as evidence of skill.
